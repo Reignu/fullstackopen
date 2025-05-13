@@ -20,7 +20,7 @@
     server->>browser: JS file that fetches JSON data
     deactivate server
   
-    Note right of the browser: spa.js executes and fetches JSON data as js file in the traditional example
+    Note right of browser: spa.js executes and fetches JSON data as js file in the traditional example
   
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
