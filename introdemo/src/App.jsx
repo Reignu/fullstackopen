@@ -1,34 +1,22 @@
 import { useState } from 'react'
 
 const App = () => {
-  const [ counter, setCounter ] = useState(0)
-  console.log('rendering with value ', counter)
+  const [ clicks, setClicks ] = useState({
+    left:0, right:0
+  })
 
-  const incrementBy1 = () => {
-    setCounter(counter + 1)
-    console.log('rendering with value before increment ', counter)
-  }
-  const decrementBy1 = () => {
-    setCounter(counter - 1)
-    console.log('rendering with value before decrement ', counter)
-  }
-  const setto0 = () => {
-    console.log('rendering with value before reset ', counter)
-    setCounter(0)
-  }
+  const handleLeftClick = () => setClicks({ ...clicks, left: clicks.left + 1 })
+
+  const handleRightClick = () => setClicks({ ...clicks, right: clicks.right + 1 })
 
   return (
     <div>
-      <Display counter={counter} />
-      <Button onClick={incrementBy1} text='+' />
-      <Button onClick={decrementBy1} text='-' />
-      <Button onClick={setto0} text='Reset' />
+      {clicks.left}
+      <button onClick={handleLeftClick}>Left</button>
+      <button onClick={handleRightClick}>Right</button>
+      {clicks.right}
     </div>
   )
 }
 
 export default App
-
-const Display = ({ counter }) => <div>{counter}</div>
-
-const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>
